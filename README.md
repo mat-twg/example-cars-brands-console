@@ -13,6 +13,13 @@
 
 ### [Cars Brands Backend](https://github.com/mat-twg/example-cars-brands)
 
+### Build
+
+```shell
+# Build
+yarn build
+```
+
 ### Usage 
 
 ```shell
