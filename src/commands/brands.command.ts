@@ -24,7 +24,7 @@ interface BrandsOptions {
   name: 'brands',
   arguments: `[action]`,
   argsDescription: { action: args.join('|') },
-  description: 'Brands',
+  description: 'Brands \n\npayload for create/update: \n{\n  name:string\n}',
 })
 export class BrandsCommand extends CommandRunner {
   private readonly logger: Logger = new Logger(this.constructor.name);

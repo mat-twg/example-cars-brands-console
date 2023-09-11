@@ -24,7 +24,8 @@ interface CarsOptions {
   name: 'cars',
   arguments: `[action]`,
   argsDescription: { action: args.join('|') },
-  description: 'Cars',
+  description:
+    'Cars \n\npayload for create/update: \n{\n  name:string,\n  brandId:string\n}',
 })
 export class CarsCommand extends CommandRunner {
   private readonly logger: Logger = new Logger(this.constructor.name);
