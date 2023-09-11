@@ -1,0 +1,55 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build and export
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          tags: cars-brands-console:latest
+          outputs: type=docker,dest=/tmp/cars-brands-console.tar
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cars-brands-console
+          path: /tmp/cars-brands-console.tar
+          retention-days: 1
+  lint:
+    runs-on: ubuntu-latest
+    needs: docker-build
+    steps:
+      - name: Download docker image
+        uses: actions/download-artifact@v3
+        with:
+          name: cars-brands-console
+          path: /tmp
+      - name: Run Eslint
+        run: |
+          docker load --input /tmp/cars-brands-console.tar
+          docker run cars-brands-console:latest yarn lint
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - test-unit
+      - test-e2e
+    steps:
+      - name: Download docker image
+        uses: actions/download-artifact@v3
+        with:
+          name: cars-brands-console
+          path: /tmp
+      - name: Run build app
+        run: |
+          docker load --input /tmp/cars-brands-console.tar
+          docker run cars-brands-console:latest yarn build

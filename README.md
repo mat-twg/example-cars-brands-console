@@ -11,7 +11,7 @@
 >4. При запуске из командной строки с параметрами нужно выполнять подключение к Серверу и выполнять REST API операции.
 >5. Данные, полученные от Сервера выводить в консоль.
 
-### [Cars Brands Backend](https://github.com/mat-twg/example-cars-brands)
+### [Репозиторий бекенда](https://github.com/mat-twg/example-cars-brands)
 
 ### Build
 
