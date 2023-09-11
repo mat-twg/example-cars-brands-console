@@ -1009,11 +1009,6 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crun@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/crun/-/crun-0.1.1.tgz#4549d14d42b7f1be966a6007f9e6d65ff7daef05"
-  integrity sha512-Ypimeu3xXsSujwNMobNs/28zgCRiHWmKDBD93kzIq8rbH+lGgwVXArhEeQWNGSlGZ61PeagJp1Rvw/yej0s96g==
-
 debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"

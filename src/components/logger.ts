@@ -38,7 +38,7 @@ export class Logger implements LoggerService {
     console.log(
       ...this.pre(clc.bold(clc.green('LOG'))),
       ...optionalParams.map((param) => clc.yellow(`[${param}]`)),
-      message,
+      util.inspect(message, false, null, true),
     );
   }
 
@@ -82,7 +82,7 @@ export class Logger implements LoggerService {
     console.log(
       ...this.pre(clc.bold(clc.cyanBright('VERBOSE'))),
       ...optionalParams.map((param) => clc.yellow(`[${param}]`)),
-      message,
+      util.inspect(message, false, null, true),
     );
   }
 
@@ -90,7 +90,7 @@ export class Logger implements LoggerService {
     console.log(
       ...this.pre(clc.bold(level)),
       ...optionalParams.map((param) => clc.yellow(`[${param}]`)),
-      message,
+      util.inspect(message, false, null, true),
     );
   }
 }
