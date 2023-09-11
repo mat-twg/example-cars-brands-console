@@ -64,7 +64,7 @@ export class CarsCommand extends CommandRunner {
           case 204:
             return this.logger.log('OK');
           default:
-            this.logger.custom('LOG', response.data);
+            this.logger.log(response.data);
         }
       })
       .catch((error) => this.logger.error(error.response.data.message));
