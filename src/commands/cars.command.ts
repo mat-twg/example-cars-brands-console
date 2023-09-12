@@ -12,7 +12,7 @@ import { ApiCommand, args } from '../common/api.command';
 export class CarsCommand extends ApiCommand {
   protected readonly path: string = 'cars';
 
-  constructor(readonly httpService: HttpService) {
+  constructor(protected readonly httpService: HttpService) {
     super();
   }
 }
