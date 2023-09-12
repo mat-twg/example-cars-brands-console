@@ -3,6 +3,7 @@ import { Logger } from '../components/logger';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import * as process from 'process';
+import { HttpStatus } from '@nestjs/common';
 
 export enum ApiActions {
   CREATE = 'create',
@@ -53,7 +54,7 @@ export abstract class ApiCommand extends CommandRunner {
     responsePromise
       .then((response) => {
         switch (response.status) {
-          case 204:
+          case HttpStatus.NO_CONTENT:
             return this.logger.log('OK');
           default:
             this.logger.log(response.data);
